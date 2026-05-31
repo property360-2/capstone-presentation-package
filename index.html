@@ -672,6 +672,11 @@ Features:
             }
         }
 
+        /* Floating Mobile Navigation Controls */
+        .mobile-nav-panel {
+            display: none;
+        }
+
         @media (max-width: 768px) {
             /* Release strict height constraints on mobile viewports */
             .slide {
@@ -695,6 +700,43 @@ Features:
             }
             .gallery-container-outer {
                 height: 380px; /* Locked standard height for gallery on mobile screens */
+            }
+
+            /* Mobile floating navigation panel styling */
+            .mobile-nav-panel {
+                display: flex;
+                position: fixed;
+                bottom: 25px;
+                right: 25px;
+                gap: 12px;
+                z-index: 99999;
+                background: rgba(19, 21, 21, 0.85);
+                border: 1px solid rgba(201, 184, 150, 0.25);
+                border-radius: 30px;
+                padding: 6px;
+                backdrop-filter: blur(10px);
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+                pointer-events: auto;
+            }
+            .mobile-nav-panel button {
+                background: transparent;
+                border: none;
+                color: var(--accent-warm);
+                width: 42px;
+                height: 42px;
+                border-radius: 50%;
+                font-size: 18px;
+                font-family: var(--font-body);
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s var(--ease-out-expo);
+                box-shadow: none;
+            }
+            .mobile-nav-panel button:active {
+                background: rgba(255, 255, 255, 0.08);
+                transform: scale(0.9);
             }
         }
 
@@ -2112,6 +2154,12 @@ Features:
     <!-- Keyboard Navigation Hint -->
     <div class="keyboard-hint" id="keyboardHint">Use Right/Left Arrow keys or Spacebar to navigate</div>
 
+    <!-- Floating Next/Prev Navigation Panel for Smaller Devices -->
+    <div class="mobile-nav-panel">
+        <button id="mobilePrevBtn" title="Previous Slide">←</button>
+        <button id="mobileNextBtn" title="Next Slide">→</button>
+    </div>
+
     <!-- Inline editing hotzone and button -->
     <div class="edit-hotzone" id="editHotzone"></div>
     <button class="edit-toggle" id="editToggle" title="Edit mode (E)">✏️ Edit Text</button>
@@ -2145,6 +2193,7 @@ Features:
                 this.setupKeyboardNav();
                 this.setupWheelNav();
                 this.setupTouchNav();
+                this.setupMobileNavButtons();
                 this.initBackgroundAnimations();
                 this.initEditor();
                 this.initScreenshotLightbox();
@@ -2412,6 +2461,24 @@ Features:
                         }
                     }
                 }, { passive: true });
+            }
+
+            /**
+             * Binds mobile next/previous floating button click handlers for smaller viewports.
+             */
+            setupMobileNavButtons() {
+                const prevBtn = document.getElementById('mobilePrevBtn');
+                const nextBtn = document.getElementById('mobileNextBtn');
+                if (prevBtn && nextBtn) {
+                    prevBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        this.navigateTo(this.currentSlide - 1);
+                    });
+                    nextBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        this.navigateTo(this.currentSlide + 1);
+                    });
+                }
             }
 
             /**
