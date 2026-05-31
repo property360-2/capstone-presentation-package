@@ -1205,8 +1205,33 @@ Features:
     <!-- Presentation Structure Wrapper -->
     <main class="slides-container" id="slidesContainer">
 
-        <!-- SLIDE 1: TITLE SLIDE -->
-        <section class="slide active title-slide" data-slide-index="0">
+        <!-- SLIDE 1: QR CODE SPLASH INTRO -->
+        <section class="slide active qr-intro-slide" data-slide-index="0">
+            <div class="slide-content" style="max-width: 800px; text-align: center; align-items: center; margin: auto;">
+                <span class="mono-tag reveal">• Interactive Defense Mode •</span>
+                <h1 class="reveal" style="font-size: clamp(1.8rem, 4vw, 3rem); margin: 1rem 0 0.5rem 0;">Scan to Follow Along</h1>
+                <h3 class="reveal" style="font-weight: 300; font-size: clamp(1rem, 2vw, 1.3rem); color: var(--text-secondary); max-width: 600px; line-height: 1.5; margin-bottom: 1.5rem;">
+                    Scan this QR code to view and navigate the interactive presentation slides directly on your device during our defense.
+                </h3>
+                
+                <div class="reveal" style="position: relative; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(212, 165, 116, 0.15); border-radius: 12px; padding: 20px; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6); display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; max-width: 320px; margin: 0 auto; transition: all 0.3s ease;">
+                    <div style="width: 200px; height: 200px; border-radius: 6px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.05); background: #fff; padding: 10px; display: flex; align-items: center; justify-content: center;">
+                        <img src="assets/qrcode_356668502_a6754437de7d886adb1a7733c5dc1a46.png" alt="Scan QR Code" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <span style="font-family: var(--font-mono); font-size: 10px; color: var(--accent-gold); margin-top: 15px; letter-spacing: 0.05em; text-transform: uppercase;">Direct URL</span>
+                    <a href="https://property360-2.github.io/capstone-presentation-package/" target="_blank" style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-pink); text-decoration: none; word-break: break-all; margin-top: 4px; line-height: 1.3;">
+                        property360-2.github.io/capstone-presentation-package/
+                    </a>
+                </div>
+                
+                <p class="reveal" style="font-family: var(--font-mono); font-size: 11px; color: rgba(232, 228, 223, 0.3); margin-top: 2rem; letter-spacing: 0.05em;">
+                    Press Right Arrow (→) or swipe left to begin presentation
+                </p>
+            </div>
+        </section>
+
+        <!-- SLIDE 2: TITLE SLIDE -->
+        <section class="slide title-slide" data-slide-index="1">
             <div class="slide-content" style="text-align: center; align-items: center;">
                 <h1 class="reveal" style="max-width: 1000px; margin: 1.5rem 0 1rem 0;">Development of Sales & Inventory System</h1>
                 <h3 class="reveal" style="font-weight: 300; font-size: clamp(1.2rem, 2.5vw, 1.8rem); margin-bottom: 2rem;">
@@ -1228,8 +1253,8 @@ Features:
             </div>
         </section>
 
-        <!-- SLIDE 2: ABSTRACT -->
-        <section class="slide" data-slide-index="1">
+        <!-- SLIDE 3: ABSTRACT -->
+        <section class="slide" data-slide-index="2">
             <div class="slide-content" style="max-width: 1000px; margin: auto;">
                 <span class="mono-tag reveal">Abstract / Core Summary</span>
                 <h2 class="reveal">Research Abstract</h2>
@@ -1250,8 +1275,8 @@ Features:
             </div>
         </section>
 
-        <!-- SLIDE 3: OPERATIONAL CONTEXT & THE PROBLEM -->
-        <section class="slide" data-slide-index="2">
+        <!-- SLIDE 4: OPERATIONAL CONTEXT & THE PROBLEM -->
+        <section class="slide" data-slide-index="3">
             <div class="slide-content">
                 <span class="mono-tag reveal">Introduction / Operational Context</span>
                 <h2 class="reveal">Challenges in the Manual System</h2>
@@ -1293,8 +1318,8 @@ Features:
             </div>
         </section>
 
-        <!-- SLIDE 4: PRIMARY OBJECTIVES -->
-        <section class="slide" data-slide-index="3">
+        <!-- SLIDE 5: PRIMARY OBJECTIVES -->
+        <section class="slide" data-slide-index="4">
             <div class="slide-content">
                 <span class="mono-tag reveal">Introduction / Research Objectives</span>
                 <h2 class="reveal">Research Objectives</h2>
@@ -1324,8 +1349,8 @@ Features:
             </div>
         </section>
 
-        <!-- SLIDE 5: THE CONCEPTUAL FRAMEWORK (IPO MODEL) -->
-        <section class="slide" data-slide-index="4">
+        <!-- SLIDE 6: THE CONCEPTUAL FRAMEWORK (IPO MODEL) -->
+        <section class="slide" data-slide-index="5">
             <div class="slide-content">
                 <span class="mono-tag reveal">Methodology / Conceptual Framework</span>
                 <h2 class="reveal">Input-Process-Output Model</h2>
@@ -1373,8 +1398,8 @@ Features:
             </div>
         </section>
 
-        <!-- SLIDE 6: METHODOLOGY (AGILE SCRUM & KDD) -->
-        <section class="slide" data-slide-index="5">
+        <!-- SLIDE 7: METHODOLOGY (AGILE SCRUM & KDD) -->
+        <section class="slide" data-slide-index="6">
             <div class="slide-content">
                 <span class="mono-tag reveal">Methodology / Development Approach</span>
                 <h2 class="reveal">Agile Scrum & KDD Data Process</h2>
@@ -1411,8 +1436,8 @@ Features:
             </div>
         </section>
 
-        <!-- SLIDE 7: METHODOLOGY, RESPONDENTS & SAMPLING -->
-        <section class="slide" data-slide-index="6">
+        <!-- SLIDE 8: METHODOLOGY, RESPONDENTS & SAMPLING -->
+        <section class="slide" data-slide-index="7">
             <div class="slide-content">
                 <span class="mono-tag reveal">Methodology / Respondents & Sampling</span>
                 <h2 class="reveal">Research Design & Demographics</h2>
@@ -1476,8 +1501,8 @@ Features:
             </div>
         </section>
 
-        <!-- SLIDE 8: CORE FEATURE - DUAL CHANNEL ORDERING -->
-        <section class="slide" data-slide-index="7">
+        <!-- SLIDE 9: CORE FEATURE - DUAL CHANNEL ORDERING -->
+        <section class="slide" data-slide-index="8">
             <div class="slide-content">
                 <span class="mono-tag reveal">Result / Dual-Channel Ordering</span>
                 <h2 class="reveal">Dual-Channel Ordering</h2>
@@ -1639,8 +1664,8 @@ Features:
             </div>
         </section>
 
-        <!-- SLIDE 9: REAL-TIME INVENTORY & SECURITY -->
-        <section class="slide" data-slide-index="8">
+        <!-- SLIDE 10: REAL-TIME INVENTORY & SECURITY -->
+        <section class="slide" data-slide-index="9">
             <div class="slide-content">
                 <span class="mono-tag reveal">Result / Real-time Inventory & RBAC</span>
                 <h2 class="reveal">Real-time Inventory & RBAC</h2>
@@ -1767,8 +1792,8 @@ Features:
             </div>
         </section>
 
-        <!-- SLIDE 10: PREDICTIVE ANALYTICS & ALGORITHMS -->
-        <section class="slide" data-slide-index="9">
+        <!-- SLIDE 11: PREDICTIVE ANALYTICS & ALGORITHMS -->
+        <section class="slide" data-slide-index="10">
             <div class="slide-content">
                 <span class="mono-tag reveal">Result / Predictive Engine</span>
                 <h2 class="reveal">Predictive Analytics & Forecasting</h2>
@@ -1821,8 +1846,8 @@ Features:
             </div>
         </section>
 
-        <!-- SLIDE 11: SYSTEM AUTOMATION & INNOVATION -->
-        <section class="slide" data-slide-index="10">
+        <!-- SLIDE 12: SYSTEM AUTOMATION & INNOVATION -->
+        <section class="slide" data-slide-index="11">
             <div class="slide-content">
                 <span class="mono-tag reveal">Result / Technical Innovations</span>
                 <h2 class="reveal">System Automations & Innovations</h2>
@@ -1899,8 +1924,8 @@ Features:
             </div>
         </section>
 
-        <!-- SLIDE 12: SYSTEM INTERFACE CAROUSEL SHOWCASE -->
-        <section class="slide" data-slide-index="11">
+        <!-- SLIDE 13: SYSTEM INTERFACE CAROUSEL SHOWCASE -->
+        <section class="slide" data-slide-index="12">
             <div class="slide-content" style="max-height: min(90vh, 760px); gap: var(--content-gap);">
                 <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
                     <div>
@@ -2089,8 +2114,8 @@ Features:
 
 
 
-        <!-- SLIDE 13: SYSTEM EVALUATION RESULTS (ISO/IEC 25010) -->
-        <section class="slide" data-slide-index="12">
+        <!-- SLIDE 14: SYSTEM EVALUATION RESULTS (ISO/IEC 25010) -->
+        <section class="slide" data-slide-index="13">
             <div class="slide-content">
                 <span class="mono-tag reveal">Result / Evaluation Findings</span>
                 <h2 class="reveal">ISO/IEC 25010 Quality Ratings</h2>
@@ -2132,8 +2157,8 @@ Features:
             </div>
         </section>
 
-        <!-- SLIDE 14: CONCLUSIONS -->
-        <section class="slide" data-slide-index="13">
+        <!-- SLIDE 15: CONCLUSIONS -->
+        <section class="slide" data-slide-index="14">
             <div class="slide-content" style="max-width: 800px; text-align: center; align-items: center; margin: auto;">
                 <span class="mono-tag reveal">Conclusion / Research Summary</span>
                 <h2 class="reveal" style="margin-bottom: 1.5rem;">Research Conclusions</h2>
@@ -2161,8 +2186,8 @@ Features:
             </div>
         </section>
 
-        <!-- SLIDE 15: RECOMMENDATIONS -->
-        <section class="slide" data-slide-index="14">
+        <!-- SLIDE 16: RECOMMENDATIONS -->
+        <section class="slide" data-slide-index="15">
             <div class="slide-content" style="max-width: 800px; text-align: center; align-items: center; margin: auto;">
                 <span class="mono-tag reveal">Recommendation / Future Work</span>
                 <h2 class="reveal" style="margin-bottom: 1.5rem;">Recommendations & Future Work</h2>
@@ -2210,8 +2235,8 @@ Features:
             </div>
         </section>
 
-        <!-- SLIDE 16: ACKNOWLEDGEMENTS -->
-        <section class="slide" data-slide-index="15">
+        <!-- SLIDE 17: ACKNOWLEDGEMENTS -->
+        <section class="slide" data-slide-index="16">
             <div class="slide-content" style="max-width: 800px; text-align: center; align-items: center; margin: auto;">
                 <span class="mono-tag reveal">Acknowledgements / Professional Thanks</span>
                 <h2 class="reveal" style="margin-bottom: 1.5rem;">Acknowledgements & Special Thanks</h2>
@@ -2280,7 +2305,7 @@ Features:
     <!-- Bottom Presentation Info Bar -->
     <footer class="status-footer">
         <span id="footerSlideName">TITLE SLIDE</span>
-        <span id="footerIndex">1 / 16</span>
+        <span id="footerIndex">1 / 17</span>
     </footer>
 
     <!-- Keyboard Navigation Hint -->
