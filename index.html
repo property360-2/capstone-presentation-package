@@ -98,7 +98,7 @@ Features:
             z-index: 10;
         }
 
-        /* 100vh exact slide panel fitting */
+        /* 100vh exact slide panel fitting with vertical scrolling fallbacks */
         .slide {
             position: absolute;
             top: 0;
@@ -107,13 +107,15 @@ Features:
             height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start; /* Changed from center to solve flex centering scroll quirk */
             align-items: center;
             padding: var(--slide-padding);
             opacity: 0;
             pointer-events: none;
             z-index: 10;
-            overflow: hidden; /* Prevent vertical scrolling inside slides */
+            overflow-y: auto; /* Fallback vertical scroll on desktop viewports */
+            scrollbar-width: thin;
+            scrollbar-color: rgba(212, 165, 116, 0.25) transparent;
         }
 
         .slide.active {
@@ -126,11 +128,12 @@ Features:
         .slide-content {
             width: 100%;
             max-width: min(90vw, 1200px);
-            max-height: min(85vh, 750px);
+            margin-top: auto; /* Centering scroll quirk fix: center when fitting */
+            margin-bottom: auto; /* Centering scroll quirk fix: center when fitting */
             display: flex;
             flex-direction: column;
             gap: var(--content-gap);
-            overflow: hidden; /* Ensure double-protection against overflow */
+            flex-shrink: 0; /* Centering scroll quirk fix: keep layout rigid when scrolling */
         }
 
         /* =====================================================================
@@ -278,6 +281,10 @@ Features:
             grid-template-columns: 1.1fr 0.9fr;
             gap: clamp(1.5rem, 4vw, 4rem);
             align-items: center;
+        }
+
+        .split-layout > * {
+            min-width: 0;
         }
 
         /* Cards and grid components */
@@ -647,6 +654,14 @@ Features:
             gap: 10px;
         }
 
+        /* Slide 13 - Acknowledgements Grid */
+        .acknowledgement-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            width: 100%;
+        }
+
         /* Diagram split layout specific rules */
         .split-layout.diagram-split {
             grid-template-columns: 0.9fr 1.1fr;
@@ -700,6 +715,12 @@ Features:
             }
             .gallery-container-outer {
                 height: 380px; /* Locked standard height for gallery on mobile screens */
+            }
+            .nav-dots {
+                display: none !important;
+            }
+            .acknowledgement-grid {
+                grid-template-columns: 1fr;
             }
 
             /* Mobile floating navigation panel styling */
@@ -1187,24 +1208,19 @@ Features:
         <!-- SLIDE 1: TITLE SLIDE -->
         <section class="slide active title-slide" data-slide-index="0">
             <div class="slide-content" style="text-align: center; align-items: center;">
-                <span class="mono-tag reveal">Capstone Research Defense</span>
-                <h1 class="reveal" style="max-width: 1000px; margin: 1rem 0;">Development of Sales & Inventory System</h1>
+                <h1 class="reveal" style="max-width: 1000px; margin: 1.5rem 0 1rem 0;">Development of Sales & Inventory System</h1>
                 <h3 class="reveal" style="font-weight: 300; font-size: clamp(1.2rem, 2.5vw, 1.8rem); margin-bottom: 2rem;">
                     With QR Code-Based Ordering and Predictive Analytics
                 </h3>
                 
-                <div class="title-meta-container reveal">
-                    <div>
-                        <p class="mono-tag">Research Group</p>
+                <div class="title-meta-container reveal" style="justify-content: center;">
+                    <div style="text-align: center;">
+                        <p class="mono-tag" style="justify-content: center; margin-bottom: 0.5rem;">Research Group</p>
                         <p style="font-size: var(--small-size); line-height: 1.6;">
                             Alvior Dionisio DR. &bull; Ordiales, John Mark B.<br>
                             Reyes, Justine C. &bull; Venturina, Jozel V.
                         </p>
-                    </div>
-                    <div style="border-left: 1px solid rgba(232,228,223,0.1); padding-left: clamp(1rem, 4vw, 3rem);">
-                        <p class="mono-tag">Adviser</p>
-                        <p style="font-size: var(--small-size); line-height: 1.6;">
-                            <strong>Francis Ian Franca</strong><br>
+                        <p style="font-size: 11px; font-family: var(--font-mono); color: var(--text-secondary); margin-top: 1rem; letter-spacing: 0.05em;">
                             Presentation Date: June 8, 2026
                         </p>
                     </div>
@@ -2094,7 +2110,7 @@ Features:
 
         <!-- SLIDE 13: CONCLUSIONS & RECOMMENDATIONS -->
         <section class="slide" data-slide-index="12">
-            <div class="slide-content" style="max-width: 800px; text-align: center; align-items: center; margin: 0 auto;">
+            <div class="slide-content" style="max-width: 800px; text-align: center; align-items: center; margin: auto;">
                 <span class="mono-tag reveal">11 / Summary & Impact</span>
                 <h2 class="reveal" style="margin-bottom: 1.5rem;">Conclusions & Recommendations</h2>
                 
@@ -2105,11 +2121,31 @@ Features:
                             The development of a Web-Based Sales and Inventory Management System successfully solved the key bottlenecks of manual transactions at FCJ's Barihan branch, lowering order durations and data errors.
                         </p>
                     </div>
-                    <div class="card" style="border-left: 2px solid var(--accent-gold); width: 100%; max-width: 600px; margin: 0 auto; text-align: left;">
-                        <span class="mono-tag" style="color: var(--accent-gold); font-size: 11px;">Adviser Acknowledgement</span>
-                        <p style="font-size: var(--small-size); margin-top: 0.5rem; line-height: 1.5;">
-                            Deep gratitude to our Adviser, <strong>Francis Ian Franca</strong>, for his expert guidelines and invaluable insights.
+                    <div class="card" style="border-left: 2px solid var(--accent-gold); width: 100%; max-width: 760px; margin: 0 auto; text-align: left; background: rgba(255,255,255,0.01);">
+                        <span class="mono-tag" style="color: var(--accent-gold); font-size: 11px; margin-bottom: 0.5rem;">Adviser Acknowledgement</span>
+                        <p style="font-size: var(--small-size); line-height: 1.5; margin-bottom: 1rem;">
+                            Deep gratitude to our Adviser, <strong>Mr. Jonelle Angelo Cenita</strong>, for his expert guidelines and invaluable insights.
                         </p>
+                        
+                        <span class="mono-tag" style="color: var(--accent-pink); font-size: 11px; margin-bottom: 0.5rem;">Special Acknowledgements & Professional Feedback</span>
+                        <div class="acknowledgement-grid" style="margin-top: 0.5rem;">
+                            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(212,165,116,0.08); border-radius: 4px; padding: 8px;">
+                                <strong style="font-size: 12px; color: var(--accent-gold);">Francis Ian Africa</strong>
+                                <p style="font-size: 10.5px; line-height: 1.35; color: var(--text-secondary); margin-top: 2px;">Document to system consistency, machine learning guidance, and professional feedback.</p>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(212,165,116,0.08); border-radius: 4px; padding: 8px;">
+                                <strong style="font-size: 12px; color: var(--accent-gold);">Vergil Del Monte</strong>
+                                <p style="font-size: 10.5px; line-height: 1.35; color: var(--text-secondary); margin-top: 2px;">System consultation and professional feedback.</p>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(212,165,116,0.08); border-radius: 4px; padding: 8px;">
+                                <strong style="font-size: 12px; color: var(--accent-gold);">Angel Orendain</strong>
+                                <p style="font-size: 10.5px; line-height: 1.35; color: var(--text-secondary); margin-top: 2px;">Dashboard and Decision Support System guidance.</p>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(212,165,116,0.08); border-radius: 4px; padding: 8px;">
+                                <strong style="font-size: 12px; color: var(--accent-gold);">Maylyn Torino</strong>
+                                <p style="font-size: 10.5px; line-height: 1.35; color: var(--text-secondary); margin-top: 2px;">Research paper professional feedback.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
