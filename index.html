@@ -676,6 +676,8 @@ Features:
             /* Release strict height constraints on mobile viewports */
             .slide {
                 overflow-y: auto;
+                justify-content: flex-start !important;
+                padding-top: clamp(3.5rem, 8vh, 5rem) !important;
             }
             .slide-content {
                 max-height: none;
@@ -1670,6 +1672,7 @@ Features:
                         </div>
                         <p style="font-size: var(--small-size); font-style: italic; text-align: center; color: var(--accent-gold); margin-top: 2px;">Figure: Predictive Analytics & Forecasting Dashboard</p>
                     </div>
+                </div>
             </div>
         </section>
 
@@ -1749,8 +1752,6 @@ Features:
                     </div>
                 </div>
             </div>
-        </section>
-
         </section>
 
         <!-- SLIDE 10: SYSTEM INTERFACE CAROUSEL SHOWCASE -->
@@ -2046,7 +2047,10 @@ Features:
                         </div>
                     </div>
                 </div>
-           <!-- SLIDE 13: CONCLUSIONS & RECOMMENDATIONS -->
+            </div>
+        </section>
+
+        <!-- SLIDE 13: CONCLUSIONS & RECOMMENDATIONS -->
         <section class="slide" data-slide-index="12">
             <div class="slide-content" style="max-width: 800px; text-align: center; align-items: center; margin: 0 auto;">
                 <span class="mono-tag reveal">11 / Summary & Impact</span>
@@ -2209,12 +2213,12 @@ Features:
                     targets: outgoingSlide,
                     opacity: 0,
                     scale: 0.94,
-                    translateY: direction === 'next' ? -50 : 50,
+                    translateX: direction === 'next' ? -80 : 80,
                 });
 
                 // Reset incoming initial state before reveal
                 incomingSlide.classList.add('active');
-                incomingSlide.style.transform = `translateY(${direction === 'next' ? 60 : -60}px) scale(1.05)`;
+                incomingSlide.style.transform = `translateX(${direction === 'next' ? 80 : -80}px) scale(1.05)`;
                 incomingSlide.style.opacity = '0';
 
                 // Incoming panel animations: slides and scales into absolute focus
@@ -2222,7 +2226,7 @@ Features:
                     targets: incomingSlide,
                     opacity: 1,
                     scale: 1,
-                    translateY: 0,
+                    translateX: 0,
                 }, '-=600');
 
                 // Animate child elements with staggered entrance reveals
