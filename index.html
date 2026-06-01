@@ -25,7 +25,7 @@ Features:
     <!-- Google Fonts Pairing: Cormorant Garamond (Serif Display) + IBM Plex Sans (Sans Body) + Space Mono (Monospace Accent) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
 
     <!-- Anime.js: Lightweight and high-performance Javascript animation engine -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
@@ -334,6 +334,33 @@ Features:
             left: 0;
             color: var(--accent-warm);
             font-weight: 300;
+        }
+
+        /* Support for premium custom icons in list items */
+        .bullet-list li.has-icon {
+            padding-left: clamp(1.5rem, 3vw, 2.5rem);
+        }
+
+        .bullet-list li.has-icon::before {
+            content: none;
+        }
+
+        .bullet-list li.has-icon svg,
+        .bullet-list li.has-icon .material-symbols-rounded {
+            position: absolute;
+            left: 0;
+            top: 4px;
+            flex-shrink: 0;
+            color: var(--accent-warm);
+        }
+
+        /* Material Symbols Custom Styles */
+        .material-symbols-rounded {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            display: inline-flex;
+            vertical-align: middle;
+            font-size: 20px;
+            color: var(--accent-warm);
         }
 
         /* Large pull-out quote component */
@@ -1217,13 +1244,17 @@ Features:
                     <div style="width: 200px; height: 200px; border-radius: 6px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.05); background: #fff; padding: 10px; display: flex; align-items: center; justify-content: center;">
                         <img src="assets/qrcode_356668502_a6754437de7d886adb1a7733c5dc1a46.png" alt="Scan QR Code" style="width: 100%; height: 100%; object-fit: contain;">
                     </div>
-                    <span style="font-family: var(--font-mono); font-size: 10px; color: var(--accent-gold); margin-top: 15px; letter-spacing: 0.05em; text-transform: uppercase;">Direct URL</span>
+                    <span style="font-family: var(--font-mono); font-size: 10px; color: var(--accent-gold); margin-top: 15px; letter-spacing: 0.05em; text-transform: uppercase; display: flex; align-items: center; gap: 6px;">
+                        <span class="material-symbols-rounded" style="font-size: 14px; color: var(--accent-gold);">link</span>
+                        Direct URL
+                    </span>
                     <a href="https://property360-2.github.io/capstone-presentation-package/" target="_blank" style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-pink); text-decoration: none; word-break: break-all; margin-top: 4px; line-height: 1.3;">
                         property360-2.github.io/capstone-presentation-package/
                     </a>
                 </div>
                 
-                <p class="reveal" style="font-family: var(--font-mono); font-size: 11px; color: rgba(232, 228, 223, 0.3); margin-top: 2rem; letter-spacing: 0.05em;">
+                <p class="reveal" style="font-family: var(--font-mono); font-size: 11px; color: rgba(232, 228, 223, 0.3); margin-top: 2rem; letter-spacing: 0.05em; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                    <span class="material-symbols-rounded" style="font-size: 14px; color: rgba(232, 228, 223, 0.2);">keyboard</span>
                     Press Right Arrow (→) or swipe left to begin presentation
                 </p>
             </div>
@@ -1296,19 +1327,31 @@ Features:
                     <div class="vertical-accent reveal">
                         <div class="grid-layout" style="grid-template-columns: 1fr; gap: clamp(0.3rem, 0.8vh, 0.7rem);">
                             <div class="card" style="padding: clamp(0.5rem, 1vh, 1rem);">
-                                <div class="card-num">01. SALES RECORDING</div>
+                                <div class="card-num" style="display: flex; align-items: center; gap: 8px;">
+                                    <span class="material-symbols-rounded" style="color: var(--accent-warm);">receipt_long</span>
+                                    01. SALES RECORDING
+                                </div>
                                 <p style="font-size: var(--small-size);">Manual recording of transactions often results in mathematical errors and incomplete sales logs.</p>
                             </div>
                             <div class="card" style="padding: clamp(0.5rem, 1vh, 1rem);">
-                                <div class="card-num">02. INVENTORY TRACKING</div>
+                                <div class="card-num" style="display: flex; align-items: center; gap: 8px;">
+                                    <span class="material-symbols-rounded" style="color: var(--accent-warm);">inventory_2</span>
+                                    02. INVENTORY TRACKING
+                                </div>
                                 <p style="font-size: var(--small-size);">Delayed updates to stock volumes lead to discrepancies, resulting in stockouts or overstocking.</p>
                             </div>
                             <div class="card" style="padding: clamp(0.5rem, 1vh, 1rem);">
-                                <div class="card-num">03. REPORT GENERATION</div>
+                                <div class="card-num" style="display: flex; align-items: center; gap: 8px;">
+                                    <span class="material-symbols-rounded" style="color: var(--accent-warm);">bar_chart</span>
+                                    03. REPORT GENERATION
+                                </div>
                                 <p style="font-size: var(--small-size);">Committing to manual methods yields slow, time-consuming compilations of sales and inventory reports.</p>
                             </div>
                             <div class="card" style="padding: clamp(0.5rem, 1vh, 1rem);">
-                                <div class="card-num">04. LACK OF ACCOUNTABILITY</div>
+                                <div class="card-num" style="display: flex; align-items: center; gap: 8px;">
+                                    <span class="material-symbols-rounded" style="color: var(--accent-warm);">shield</span>
+                                    04. LACK OF ACCOUNTABILITY
+                                </div>
                                 <p style="font-size: var(--small-size);">Unclear role division and the absence of system logs limit traceability and security auditing.</p>
                             </div>
                         </div>
@@ -1338,10 +1381,10 @@ Features:
 
                     <div class="vertical-accent reveal">
                         <ul class="bullet-list">
-                            <li><strong>Unified Sales System:</strong> Implement QR code client-side ordering synced simultaneously with a traditional cashier-assisted administrative panel.</li>
-                            <li><strong>Centralized Real-Time Inventory:</strong> Track exact shelf and stock metrics with automatic inventory deductions during transactions.</li>
-                            <li><strong>Analytical Demand Planning:</strong> Deploy statistical regression models to forecast sales trends based on operational histories.</li>
-                            <li><strong>Secure Accountability:</strong> Enforce strict Role-Based Access Controls (RBAC) along with automatic cryptographic audit trails.</li>
+                            <li class="has-icon"><span class="material-symbols-rounded" style="color: var(--accent-warm);">shopping_cart</span><strong>Unified Sales System:</strong> Implement QR code client-side ordering synced simultaneously with a traditional cashier-assisted administrative panel.</li>
+                            <li class="has-icon"><span class="material-symbols-rounded" style="color: var(--accent-warm);">storage</span><strong>Centralized Real-Time Inventory:</strong> Track exact shelf and stock metrics with automatic inventory deductions during transactions.</li>
+                            <li class="has-icon"><span class="material-symbols-rounded" style="color: var(--accent-warm);">trending_up</span><strong>Analytical Demand Planning:</strong> Deploy statistical regression models to forecast sales trends based on operational histories.</li>
+                            <li class="has-icon"><span class="material-symbols-rounded" style="color: var(--accent-warm);">verified_user</span><strong>Secure Accountability:</strong> Enforce strict Role-Based Access Controls (RBAC) along with automatic cryptographic audit trails.</li>
                         </ul>
                     </div>
                 </div>
@@ -1410,7 +1453,10 @@ Features:
                             The software interface and core mechanics were developed in <strong>2-to-4 week sprints</strong> under the Agile Scrum framework, allowing for continuous developer iteration, immediate supervisor review, and rapid client validation.
                         </p>
                         <div class="card">
-                            <span class="mono-tag" style="font-size: 11px;">Scrum Sprints Cycle</span>
+                            <span class="mono-tag" style="font-size: 11px; display: flex; align-items: center; gap: 8px;">
+                                <span class="material-symbols-rounded">loop</span>
+                                Scrum Sprints Cycle
+                            </span>
                             <p style="font-size: var(--small-size); margin-top: 0.5rem;">
                                 Planning &bull; Requirements Analysis &bull; Coding Sprints &bull; Review & Integration &bull; Incremental Deployment
                             </p>
@@ -1424,10 +1470,16 @@ Features:
                         </p>
                         <div class="grid-layout" style="grid-template-columns: 1fr; gap: 8px;">
                             <div class="card" style="padding: 10px; background: rgba(30, 42, 34, 0.2);">
-                                <p style="font-size: var(--small-size);"><strong>Data Selection & Cleaning:</strong> Removed duplicate rows, structured null values, and organized outliers.</p>
+                                <p style="font-size: var(--small-size); display: flex; align-items: flex-start; gap: 8px;">
+                                    <span class="material-symbols-rounded" style="color: var(--accent-gold); flex-shrink: 0;">cleaning_services</span>
+                                    <span><strong>Data Selection & Cleaning:</strong> Removed duplicate rows, structured null values, and organized outliers.</span>
+                                </p>
                             </div>
                             <div class="card" style="padding: 10px; background: rgba(30, 42, 34, 0.2);">
-                                <p style="font-size: var(--small-size);"><strong>Transformation & Mining:</strong> Converted parameters into trend signals for <strong>Holt's Linear Smoothing</strong>.</p>
+                                <p style="font-size: var(--small-size); display: flex; align-items: flex-start; gap: 8px;">
+                                    <span class="material-symbols-rounded" style="color: var(--accent-gold); flex-shrink: 0;">bolt</span>
+                                    <span><strong>Transformation & Mining:</strong> Converted parameters into trend signals for <strong>Holt's Linear Smoothing</strong>.</span>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -1448,7 +1500,10 @@ Features:
                             To ensure high software quality standards, evaluations were performed with a sample of active system users based on the international <strong>ISO/IEC 25010:2011</strong> Software Quality standard.
                         </p>
                         <div class="card">
-                            <span class="mono-tag" style="font-size: 11px;">Sampling Approach</span>
+                            <span class="mono-tag" style="font-size: 11px; display: flex; align-items: center; gap: 8px;">
+                                <span class="material-symbols-rounded">groups</span>
+                                Sampling Approach
+                            </span>
                             <p style="font-size: var(--small-size); margin-top: 0.5rem; line-height: 1.5;">
                                 Non-probability <strong>Convenience Sampling</strong> was selected to access direct active operators (owner, cashiers, customers) for practical, highly relevant feedback.
                             </p>
@@ -1833,7 +1888,10 @@ Features:
                             </div>
                             <div class="card-footer-info">
                                 <div style="text-align: left;">
-                                    <span class="mono-tag" style="font-size: 10px; color: var(--accent-gold); margin-bottom: 2px;">SYSTEM PREVIEW</span>
+                                    <span class="mono-tag" style="font-size: 10px; color: var(--accent-gold); margin-bottom: 2px; display: flex; align-items: center; gap: 4px;">
+                                        <span class="material-symbols-rounded" style="font-size: 12px; color: var(--accent-gold);">trending_up</span>
+                                        SYSTEM PREVIEW
+                                    </span>
                                     <p style="font-size: 11px; font-weight: 400; color: var(--text-primary); margin: 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; max-width: 200px;">Predictive Analytics Core</p>
                                 </div>
                                 <button style="pointer-events: none;">View Data</button>
@@ -1855,7 +1913,10 @@ Features:
                     <!-- Block 1: Automated Order & Stock Synchronization -->
                     <div class="card reveal" style="padding: clamp(0.5rem, 1.1vh, 1.1rem); border-color: rgba(212, 165, 116, 0.15); display: flex; flex-direction: column; justify-content: space-between;">
                         <div>
-                            <div class="card-num">01. AUTOMATED TRANSACTION SYNC</div>
+                            <div class="card-num" style="display: flex; align-items: center; gap: 8px;">
+                                <span class="material-symbols-rounded" style="color: var(--accent-warm);">sync</span>
+                                01. AUTOMATED TRANSACTION SYNC
+                            </div>
                             <h3 style="margin: 0.1rem 0; font-size: 1.1rem; color: var(--accent-warm);">Instant Ingredient Deductions</h3>
                             <p style="font-size: var(--small-size); line-height: 1.35; margin-top: 0.3rem; text-align: justify;">
                                 QR-code order submissions automatically deduct precise ingredients from the database in real time. Eliminates physical count lags and ensures immediate transactional tracking.
@@ -1872,7 +1933,10 @@ Features:
                     <!-- Block 2: Automated Low-Stock Alert Pipeline -->
                     <div class="card reveal" style="padding: clamp(0.5rem, 1.1vh, 1.1rem); border-color: rgba(232, 180, 184, 0.15); display: flex; flex-direction: column; justify-content: space-between;">
                         <div>
-                            <div class="card-num" style="color: var(--accent-pink);">02. REAL-TIME THRESHOLD ALERTS</div>
+                            <div class="card-num" style="color: var(--accent-pink); display: flex; align-items: center; gap: 8px;">
+                                <span class="material-symbols-rounded" style="color: var(--accent-pink);">notifications_active</span>
+                                02. REAL-TIME THRESHOLD ALERTS
+                            </div>
                             <h3 style="margin: 0.1rem 0; font-size: 1.1rem; color: var(--accent-pink);">Automated Stock Alerts</h3>
                             <p style="font-size: var(--small-size); line-height: 1.35; margin-top: 0.3rem; text-align: justify;">
                                 Monitors material volumes continuously. The system triggers automated low-stock warnings to the manager's terminal immediately when quantities cross safety lines, preventing service disruptions.
@@ -1889,7 +1953,10 @@ Features:
                     <!-- Block 3: Automated Report Generation -->
                     <div class="card reveal" style="padding: clamp(0.5rem, 1.1vh, 1.1rem); border-color: rgba(201, 184, 150, 0.15); display: flex; flex-direction: column; justify-content: space-between;">
                         <div>
-                            <div class="card-num" style="color: var(--accent-gold);">03. AUTOMATED ANALYTICS PIPELINE</div>
+                            <div class="card-num" style="color: var(--accent-gold); display: flex; align-items: center; gap: 8px;">
+                                <span class="material-symbols-rounded" style="color: var(--accent-gold);">description</span>
+                                03. AUTOMATED ANALYTICS PIPELINE
+                            </div>
                             <h3 style="margin: 0.1rem 0; font-size: 1.1rem; color: var(--accent-gold);">Instant Report Generation</h3>
                             <p style="font-size: var(--small-size); line-height: 1.35; margin-top: 0.3rem; text-align: justify;">
                                 Aggregates daily, weekly, and monthly transactions, compiling them instantly into un-editable graphical sales charts and inventory reports. Removes manual ledger logging errors and saves operational hours.
@@ -1906,7 +1973,10 @@ Features:
                     <!-- Block 4: Innovative Forecasting Core -->
                     <div class="card reveal" style="padding: clamp(0.5rem, 1.1vh, 1.1rem); border-color: rgba(30, 42, 34, 0.4); display: flex; flex-direction: column; justify-content: space-between;">
                         <div>
-                            <div class="card-num" style="color: #c9b896;">04. SYSTEM INNOVATIONS CORE</div>
+                            <div class="card-num" style="color: #c9b896; display: flex; align-items: center; gap: 8px;">
+                                <span class="material-symbols-rounded" style="color: #c9b896;">analytics</span>
+                                04. SYSTEM INNOVATIONS CORE
+                            </div>
                             <h3 style="margin: 0.1rem 0; font-size: 1.1rem; color: #c9b896;">Predictive Demand Smoothing</h3>
                             <p style="font-size: var(--small-size); line-height: 1.35; margin-top: 0.3rem; text-align: justify;">
                                 Integrates double exponential smoothing (**Holt's Linear Smoothing** and **Linear Regression**). Computes future restocking demands and maps sales seasonalities automatically based on historical data.
@@ -2135,19 +2205,31 @@ Features:
                         <h3 style="margin-bottom: 0.5rem;">Core Quality Characteristics Evaluated</h3>
                         <div class="ratings-grid reveal">
                             <div class="card" style="padding: 10px;">
-                                <h4 style="font-size: 13px; color: var(--accent-warm);">1. Functional Suitability</h4>
+                                <h4 style="font-size: 13px; color: var(--accent-warm); display: flex; align-items: center; gap: 6px;">
+                                    <span class="material-symbols-rounded" style="color: var(--accent-warm);">check_circle</span>
+                                    1. Functional Suitability
+                                </h4>
                                 <p style="font-size: 11px;">Aligns perfectly with small-business workflows.</p>
                             </div>
                             <div class="card" style="padding: 10px;">
-                                <h4 style="font-size: 13px; color: var(--accent-warm);">2. Usability & Learnability</h4>
+                                <h4 style="font-size: 13px; color: var(--accent-warm); display: flex; align-items: center; gap: 6px;">
+                                    <span class="material-symbols-rounded" style="color: var(--accent-warm);">visibility</span>
+                                    2. Usability & Learnability
+                                </h4>
                                 <p style="font-size: 11px;">Requires zero training for staff and customers.</p>
                             </div>
                             <div class="card" style="padding: 10px;">
-                                <h4 style="font-size: 13px; color: var(--accent-warm);">3. Security Parameters</h4>
+                                <h4 style="font-size: 13px; color: var(--accent-warm); display: flex; align-items: center; gap: 6px;">
+                                    <span class="material-symbols-rounded" style="color: var(--accent-warm);">security</span>
+                                    3. Security Parameters
+                                </h4>
                                 <p style="font-size: 11px;">RBAC and encrypted logs defend transactions.</p>
                             </div>
                             <div class="card" style="padding: 10px;">
-                                <h4 style="font-size: 13px; color: var(--accent-warm);">4. Performance Efficiency</h4>
+                                <h4 style="font-size: 13px; color: var(--accent-warm); display: flex; align-items: center; gap: 6px;">
+                                    <span class="material-symbols-rounded" style="color: var(--accent-warm);">speed</span>
+                                    4. Performance Efficiency
+                                </h4>
                                 <p style="font-size: 11px;">Rapid load speeds and minimal database queries.</p>
                             </div>
                         </div>
@@ -2164,19 +2246,28 @@ Features:
                 
                 <div class="reveal" style="display: flex; flex-direction: column; gap: 1.25rem; text-align: justify; width: 100%;">
                     <div class="card" style="border-left: 2px solid var(--accent-warm); padding: 14px;">
-                        <h3 style="margin-bottom: 0.4rem; text-align: left; color: var(--accent-warm); font-size: 1.15rem;">1. Operational Streamlining</h3>
+                        <h3 style="margin-bottom: 0.4rem; text-align: left; color: var(--accent-warm); font-size: 1.15rem; display: flex; align-items: center; gap: 8px;">
+                            <span class="material-symbols-rounded" style="color: var(--accent-warm); flex-shrink: 0; font-size: 22px;">insights</span>
+                            1. Operational Streamlining
+                        </h3>
                         <p style="text-align: justify; line-height: 1.5; font-size: var(--small-size);">
                             The development of a Web-Based Sales and Inventory Management System successfully solved the key bottlenecks of manual transactions at FCJ's Barihan branch, lowering order durations and eliminating manual ledger reporting errors.
                         </p>
                     </div>
                     <div class="card" style="border-left: 2px solid var(--accent-pink); padding: 14px;">
-                        <h3 style="margin-bottom: 0.4rem; text-align: left; color: var(--accent-pink); font-size: 1.15rem;">2. Quantitative Inclusivity & Security</h3>
+                        <h3 style="margin-bottom: 0.4rem; text-align: left; color: var(--accent-pink); font-size: 1.15rem; display: flex; align-items: center; gap: 8px;">
+                            <span class="material-symbols-rounded" style="color: var(--accent-pink); flex-shrink: 0; font-size: 22px;">admin_panel_settings</span>
+                            2. Quantitative Inclusivity & Security
+                        </h3>
                         <p style="text-align: justify; line-height: 1.5; font-size: var(--small-size);">
                             Deploying dual-channel ordering (QR & cashier POS) accommodates multiple customer demographics, while unified database synchronizations and Role-Based Access Controls (RBAC) enforce strict transaction accountability.
                         </p>
                     </div>
                     <div class="card" style="border-left: 2px solid var(--accent-gold); padding: 14px;">
-                        <h3 style="margin-bottom: 0.4rem; text-align: left; color: var(--accent-gold); font-size: 1.15rem;">3. Predictive Demand Success</h3>
+                        <h3 style="margin-bottom: 0.4rem; text-align: left; color: var(--accent-gold); font-size: 1.15rem; display: flex; align-items: center; gap: 8px;">
+                            <span class="material-symbols-rounded" style="color: var(--accent-gold); flex-shrink: 0; font-size: 22px;">trending_up</span>
+                            3. Predictive Demand Success
+                        </h3>
                         <p style="text-align: justify; line-height: 1.5; font-size: var(--small-size);">
                             Employing mathematical double-smoothing algorithms (Holt's Linear smoothing and Linear Regression) successfully transitions operations from a reactive posture to a data-driven, proactive demand planning framework.
                         </p>
@@ -2195,7 +2286,10 @@ Features:
                     <div class="grid-layout" style="grid-template-columns: 1fr 1fr; gap: clamp(0.6rem, 1.5vh, 1.2rem);">
                         <div class="card" style="border-top: 2px solid var(--accent-warm); display: flex; flex-direction: column; justify-content: space-between; padding: 12px;">
                             <div>
-                                <span class="mono-tag" style="font-size: 9px; color: var(--accent-warm); margin-bottom: 4px;">01. OPERATIONAL ROLL-OUT</span>
+                                <span class="mono-tag" style="font-size: 9px; color: var(--accent-warm); margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
+                                    <span class="material-symbols-rounded" style="color: var(--accent-warm); font-size: 14px;">desktop_windows</span>
+                                    01. OPERATIONAL ROLL-OUT
+                                </span>
                                 <h3 style="margin: 0.2rem 0; font-size: 1rem; color: var(--accent-warm);">Multi-Terminal POS Scaling</h3>
                                 <p style="font-size: 11.5px; line-height: 1.4; text-align: justify; margin-top: 0.2rem; color: var(--text-secondary);">
                                     Expand the localized single-terminal POS console to support multiple concurrent staff terminals at FCJ’s Barihan Branch, facilitating simultaneous walk-in processing.
@@ -2204,7 +2298,10 @@ Features:
                         </div>
                         <div class="card" style="border-top: 2px solid var(--accent-pink); display: flex; flex-direction: column; justify-content: space-between; padding: 12px;">
                             <div>
-                                <span class="mono-tag" style="font-size: 9px; color: var(--accent-pink); margin-bottom: 4px;">02. CLOUD INFRASTRUCTURE</span>
+                                <span class="mono-tag" style="font-size: 9px; color: var(--accent-pink); margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
+                                    <span class="material-symbols-rounded" style="color: var(--accent-pink); font-size: 14px;">cloud_sync</span>
+                                    02. CLOUD INFRASTRUCTURE
+                                </span>
                                 <h3 style="margin: 0.2rem 0; font-size: 1rem; color: var(--accent-pink);">Multi-Branch Cloud Sync</h3>
                                 <p style="font-size: 11.5px; line-height: 1.4; text-align: justify; margin-top: 0.2rem; color: var(--text-secondary);">
                                     Transition from local MySQL structures to secured cloud deployments (e.g. AWS or Firebase) to enable remote multi-branch synchronization and real-time operations auditing.
@@ -2213,7 +2310,10 @@ Features:
                         </div>
                         <div class="card" style="border-top: 2px solid var(--accent-gold); display: flex; flex-direction: column; justify-content: space-between; padding: 12px;">
                             <div>
-                                <span class="mono-tag" style="font-size: 9px; color: var(--accent-gold); margin-bottom: 4px;">03. ALGORITHM REFINEMENT</span>
+                                <span class="mono-tag" style="font-size: 9px; color: var(--accent-gold); margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
+                                    <span class="material-symbols-rounded" style="color: var(--accent-gold); font-size: 14px;">memory</span>
+                                    03. ALGORITHM REFINEMENT
+                                </span>
                                 <h3 style="margin: 0.2rem 0; font-size: 1rem; color: var(--accent-gold);">Hybrid Forecast Models</h3>
                                 <p style="font-size: 11.5px; line-height: 1.4; text-align: justify; margin-top: 0.2rem; color: var(--text-secondary);">
                                     As operational histories accumulate beyond 60 days, integrate hybrid mathematical forecasting models (e.g. combining Holt's with SARIMA) to account for holiday demand seasonality.
@@ -2222,7 +2322,10 @@ Features:
                         </div>
                         <div class="card" style="border-top: 2px solid #1e2a22; display: flex; flex-direction: column; justify-content: space-between; padding: 12px;">
                             <div>
-                                <span class="mono-tag" style="font-size: 9px; color: var(--text-secondary); margin-bottom: 4px;">04. PHYSICAL HARDWARE</span>
+                                <span class="mono-tag" style="font-size: 9px; color: var(--text-secondary); margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
+                                    <span class="material-symbols-rounded" style="color: var(--text-secondary); font-size: 14px;">print</span>
+                                    04. PHYSICAL HARDWARE
+                                </span>
                                 <h3 style="margin: 0.2rem 0; font-size: 1rem; color: var(--text-primary);">Thermal Printers & Alarms</h3>
                                 <p style="font-size: 11.5px; line-height: 1.4; text-align: justify; margin-top: 0.2rem; color: var(--text-secondary);">
                                     Deploy thermal receipt printers directly linked to cashier terminals, alongside physical visual/audio low-stock sirens at warehouse stations.
@@ -2234,38 +2337,132 @@ Features:
             </div>
         </section>
 
-        <!-- SLIDE 17: ACKNOWLEDGEMENTS -->
+        <!-- SLIDE 17: STAKEHOLDER ACKNOWLEDGEMENTS -->
         <section class="slide" data-slide-index="16">
             <div class="slide-content" style="max-width: 800px; text-align: center; align-items: center; margin: auto;">
-                <span class="mono-tag reveal">Acknowledgements / Professional Thanks</span>
-                <h2 class="reveal" style="margin-bottom: 1.5rem;">Acknowledgements & Special Thanks</h2>
+                <span class="mono-tag reveal">Acknowledgements / Project Stakeholders</span>
+                <h2 class="reveal" style="margin-bottom: 1.25rem;">Project Stakeholders & Core Thanks</h2>
+                
+                <div class="reveal" style="display: flex; flex-direction: column; gap: 0.9rem; text-align: justify; width: 100%;">
+                    <!-- Client Card -->
+                    <div class="card" style="border-left: 2px solid var(--accent-warm); padding: 12px; background: rgba(255,255,255,0.01);">
+                        <span class="mono-tag" style="color: var(--accent-warm); font-size: 10px; margin-bottom: 0.3rem; display: flex; align-items: center; gap: 6px;">
+                            <span class="material-symbols-rounded" style="color: var(--accent-warm); font-size: 16px;">storefront</span>
+                            Client Partner
+                        </span>
+                        <strong style="font-size: 13px; color: var(--accent-warm);">Ms. Rachel Anne Tayag (Owner, FCJ Barihan Branch)</strong>
+                        <p style="font-size: var(--small-size); line-height: 1.45; color: var(--text-secondary); margin-top: 2px;">
+                            For granting the opportunity to conduct the study and for her full cooperation and support during implementation and evaluation.
+                        </p>
+                    </div>
+
+                    <!-- Staff & Research Team Grid -->
+                    <div class="grid-layout" style="grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <div class="card" style="border-top: 2px solid var(--accent-pink); padding: 12px; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <span class="mono-tag" style="font-size: 9px; color: var(--accent-pink); margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
+                                    <span class="material-symbols-rounded" style="color: var(--accent-pink); font-size: 14px;">people</span>
+                                    OPERATIONAL TEAM
+                                </span>
+                                <strong style="font-size: 12px; color: var(--accent-pink);">FCJ Barihan Branch Staff</strong>
+                                <p style="font-size: 11.5px; line-height: 1.4; text-align: justify; margin-top: 0.2rem; color: var(--text-secondary);">
+                                    For their active participation, cooperation, and valuable feedback during system testing.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card" style="border-top: 2px solid #1e2a22; padding: 12px; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <span class="mono-tag" style="font-size: 9px; color: var(--text-secondary); margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
+                                    <span class="material-symbols-rounded" style="color: var(--text-secondary); font-size: 14px;">grade</span>
+                                    RESEARCH GROUP
+                                </span>
+                                <strong style="font-size: 12px; color: var(--text-primary);">The Research Team</strong>
+                                <p style="font-size: 11.5px; line-height: 1.4; text-align: justify; margin-top: 0.2rem; color: var(--text-secondary);">
+                                    The researchers acknowledged their own dedication, teamwork, and perseverance in overcoming the challenges encountered during the project.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 18: ACADEMIC ACKNOWLEDGEMENTS -->
+        <section class="slide" data-slide-index="17">
+            <div class="slide-content" style="max-width: 800px; text-align: center; align-items: center; margin: auto;">
+                <span class="mono-tag reveal">Acknowledgements / Academic Mentors</span>
+                <h2 class="reveal" style="margin-bottom: 1.5rem;">Academic Mentors & Technical Thanks</h2>
                 
                 <div class="reveal" style="display: flex; flex-direction: column; gap: 1.5rem; text-align: justify; width: 100%;">
                     <div class="card" style="border-left: 2px solid var(--accent-gold); width: 100%; max-width: 760px; margin: 0 auto; text-align: left; background: rgba(255,255,255,0.01);">
-                        <span class="mono-tag" style="color: var(--accent-gold); font-size: 11px; margin-bottom: 0.5rem;">Adviser Acknowledgement</span>
-                        <p style="font-size: var(--small-size); line-height: 1.5; margin-bottom: 1rem;">
-                            Deep gratitude to our Adviser, <strong>Mr. Jonelle Angelo Cenita</strong>, for his expert guidelines and invaluable insights.
-                        </p>
+                        <span class="mono-tag" style="color: var(--accent-pink); font-size: 11px; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 6px;">
+                            <span class="material-symbols-rounded" style="color: var(--accent-pink); font-size: 14px;">school</span>
+                            Lead Research Mentor & Adviser
+                        </span>
+                        <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(212,165,116,0.15); border-radius: 4px; padding: 12px; margin-bottom: 12px;">
+                            <strong style="font-size: 13px; color: var(--accent-gold);">Mr. Jonelle Angelo Cenita</strong>
+                            <p style="font-size: 11px; line-height: 1.4; color: var(--text-secondary); margin-top: 3px;">Expert guidelines, invaluable insights, and technical direction throughout this study.</p>
+                        </div>
                         
-                        <span class="mono-tag" style="color: var(--accent-pink); font-size: 11px; margin-bottom: 0.5rem;">Special Acknowledgements & Professional Feedback</span>
+                        <span class="mono-tag" style="color: var(--accent-pink); font-size: 11px; margin-bottom: 0.5rem; display: block; margin-top: 10px;">Technical & Editorial Advisors</span>
                         <div class="acknowledgement-grid" style="margin-top: 0.5rem;">
-                            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(212,165,116,0.08); border-radius: 4px; padding: 8px;">
+                            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(212,165,116,0.08); border-radius: 4px; padding: 10px;">
                                 <strong style="font-size: 12px; color: var(--accent-gold);">Francis Ian Africa</strong>
-                                <p style="font-size: 10.5px; line-height: 1.35; color: var(--text-secondary); margin-top: 2px;">Document to system consistency, machine learning guidance, and professional feedback.</p>
+                                <p style="font-size: 10.5px; line-height: 1.4; color: var(--text-secondary); margin-top: 3px;">Document to system consistency, machine learning guidance, and professional feedback.</p>
                             </div>
-                            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(212,165,116,0.08); border-radius: 4px; padding: 8px;">
+                            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(212,165,116,0.08); border-radius: 4px; padding: 10px;">
                                 <strong style="font-size: 12px; color: var(--accent-gold);">Vergil Del Monte</strong>
-                                <p style="font-size: 10.5px; line-height: 1.35; color: var(--text-secondary); margin-top: 2px;">System consultation and professional feedback.</p>
+                                <p style="font-size: 10.5px; line-height: 1.4; color: var(--text-secondary); margin-top: 3px;">System consultation and professional feedback.</p>
                             </div>
-                            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(212,165,116,0.08); border-radius: 4px; padding: 8px;">
+                            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(212,165,116,0.08); border-radius: 4px; padding: 10px;">
                                 <strong style="font-size: 12px; color: var(--accent-gold);">Angel Orendain</strong>
-                                <p style="font-size: 10.5px; line-height: 1.35; color: var(--text-secondary); margin-top: 2px;">Dashboard and Decision Support System guidance.</p>
+                                <p style="font-size: 10.5px; line-height: 1.4; color: var(--text-secondary); margin-top: 3px;">Dashboard and Decision Support System guidance.</p>
                             </div>
-                            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(212,165,116,0.08); border-radius: 4px; padding: 8px;">
+                            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(212,165,116,0.08); border-radius: 4px; padding: 10px;">
                                 <strong style="font-size: 12px; color: var(--accent-gold);">Maylyn Torino</strong>
-                                <p style="font-size: 10.5px; line-height: 1.35; color: var(--text-secondary); margin-top: 2px;">Research paper professional feedback.</p>
+                                <p style="font-size: 10.5px; line-height: 1.4; color: var(--text-secondary); margin-top: 3px;">Research paper professional feedback.</p>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+        ========================================================================
+        SLIDE 19: OPEN SOURCE & TECHNICAL ARCHITECTURE REFERENCE
+        ------------------------------------------------------------------------
+        Purpose: Displays the official open-source GitHub repository URL for 
+                 the capstone project, providing inspiration and reference 
+                 for system architecture, database design, and code patterns.
+        Features:
+          - Styled container with minimalist inline GitHub SVG.
+          - High-contrast visual separation using theme-appropriate accent borders.
+          - Actionable dashed-border link button for external navigation.
+        ========================================================================
+        -->
+        <section class="slide" data-slide-index="18">
+            <div class="slide-content" style="max-width: 800px; text-align: center; align-items: center; margin: auto;">
+                <span class="mono-tag reveal">Open Source / Technical Architecture</span>
+                <h2 class="reveal" style="margin-bottom: 1.5rem;">Explore the Codebase</h2>
+                
+                <div class="reveal" style="display: flex; flex-direction: column; gap: 1.5rem; text-align: justify; width: 100%;">
+                    <div class="card" style="border-left: 2px solid var(--accent-gold); width: 100%; max-width: 760px; margin: 0 auto; text-align: left; background: rgba(255,255,255,0.01); display: flex; flex-direction: column; gap: 1rem; padding: 20px;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" style="color: var(--accent-gold);">
+                                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                            </svg>
+                            <strong style="font-size: 16px; color: var(--accent-gold);">System Repository</strong>
+                        </div>
+                        <p style="font-size: var(--body-size); line-height: 1.6; text-align: justify; color: var(--text-primary); margin: 0;">
+                            The complete source code for the Web-Based Sales and Inventory Management System with QR Code–Based Ordering and Predictive Analytics is fully open-source. For developers, researchers, or anyone seeking to understand how the database schemas, dual-channel transaction synchronization, real-time stock deductions, and mathematical forecasting models are implemented under the hood, this repository provides a comprehensive blueprint and deep technical inspiration.
+                        </p>
+                        <p style="font-size: var(--small-size); line-height: 1.5; color: var(--text-secondary); border-top: 1px solid rgba(232, 228, 223, 0.08); padding-top: 12px; margin: 4px 0 0 0;">
+                            You can inspect the entire system architecture, review best practices, or clone the project here:
+                        </p>
+                        <a href="https://github.com/property360-2/FJC-Pizza" target="_blank" style="font-family: var(--font-mono); font-size: 13px; color: var(--accent-pink); text-decoration: none; word-break: break-all; margin-top: 4px; border: 1px dashed rgba(232,180,184,0.3); padding: 8px 12px; border-radius: 4px; background: rgba(232,180,184,0.02); text-align: center; font-weight: 500; transition: background 0.3s;" onmouseover="this.style.background='rgba(232,180,184,0.06)'" onmouseout="this.style.background='rgba(232,180,184,0.02)'">
+                            github.com/property360-2/FJC-Pizza
+                        </a>
                     </div>
                 </div>
             </div>
@@ -2304,7 +2501,7 @@ Features:
     <!-- Bottom Presentation Info Bar -->
     <footer class="status-footer">
         <span id="footerSlideName">TITLE SLIDE</span>
-        <span id="footerIndex">1 / 17</span>
+        <span id="footerIndex">1 / 19</span>
     </footer>
 
     <!-- Keyboard Navigation Hint -->
